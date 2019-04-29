@@ -111,10 +111,11 @@ def update(a):
 
     # print (book1.sheets)
 
-    book.close() 
+    
     book1.save()
-    book1.close()  
-    book2.close()  
+    book.app.kill() 
+   #  book1.app.kill() 
+   #  book2.app.kill()  
 
 
 
