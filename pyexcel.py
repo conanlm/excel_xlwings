@@ -1,6 +1,7 @@
 # import xlwings as xw
 # pip install pywin32
 # pip install PyInstaller
+# pyinstaller -F myfile.py
 import updateexcel as ue
 
 # app=xw.App(visible=True,add_book=False)
