@@ -1,9 +1,11 @@
 # import xlwings as xw
 # pip install pywin32
 # pip install PyInstaller
-# pyinstaller -F myfile.py
+# pyinstaller -F pyexcel.py
 import updateexcel as ue
+import time
 
+start = time.perf_counter()
 # app=xw.App(visible=True,add_book=False)
 
 # book=app.books.open(r'分平台营业数据 (31).xlsx')
@@ -15,9 +17,6 @@ import updateexcel as ue
 # # print (book.app)    # 可以查看book所在哪个APP
 # # print (book.sheets)    # 又是一个类列表结构，存放各种Sheet对象
 # book.activate()    # 如果Excel没有获得当前系统的焦点，调用这个方法可以回到Excel中去
-
-
-
 
 
 # # book.sheets['sheet1'].range('A2').value = 'Foo1'
@@ -74,7 +73,7 @@ import updateexcel as ue
 # # 其他获取sheet对象的方法还有book.sheets['sheet_name']
 
 # book1=app.books.open(r'外送部数据记录表04.25.xls')
-# book1.activate() 
+# book1.activate()
 # # book1.sheets['王府井店1'].range('Y32').value = 123
 # book1.sheets['王府井店1'].range('S32').options(numbers=int).value
 # # book1.sheets['王府井店1'].range('T32').value = arr[1]
@@ -98,16 +97,16 @@ import updateexcel as ue
 
 
 # book1.save()
-# book1.close()  
+# book1.close()
 # print ()
-a=[]
-for line in open("name.txt"):  
+a = []
+for line in open("name.txt"):
     a.append(line.strip())
 
 # a.append(open("name.txt",'r', encoding='UTF-8').read() )
- 
+
     # arr.add
-print (a)
+print(a)
 
 # 分平台营业数据 (31).xlsx
 # 评论率 (30).xlsx
@@ -117,5 +116,5 @@ print (a)
 
 ue.update(a)
 
-
-
+end = time.perf_counter()
+print(end-start)

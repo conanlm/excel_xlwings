@@ -4,127 +4,121 @@ import xlwings as xw
 
 
 def update(a):
-   # app=xw.App(visible=True,add_book=False)
-
+    # app=xw.App(visible=True,add_book=False)
 
     # book=app.books.open(r'分平台营业数据 (31).xlsx')
     # print(a[2])
 
-   #  time.sleep(3)
+    #  time.sleep(3)
 
+    #  book=app.books.open(a[0])
+    #  book1=app.books.open(a[2])
+    #  book2=app.books.open(a[1])
 
-   #  book=app.books.open(a[0])
-   #  book1=app.books.open(a[2])
-   #  book2=app.books.open(a[1])
-   book=xw.Book(str(a[0]))
-   book1=xw.Book(str(a[2]))
-   book2=xw.Book(str(a[1]))
-   book3=xw.Book(a[5])
+    try:
+        book = xw.Book(str(a[0]))
+        book1 = xw.Book(str(a[2]))
+        book2 = xw.Book(str(a[1]))
+        book3 = xw.Book(a[5])
+    except FileNotFoundError:
+        print("二孩子，文件名写对了吗")
+        book1.app.quit()
+        input()
+    else:
 
-   print (book.app)    # 可以查看book所在哪个APP
-   print (book.sheets)    # 又是一个类列表结构，存放各种Sheet对象
+        print(book.app)    # 可以查看book所在哪个APP
+        print(book.sheets)    # 又是一个类列表结构，存放各种Sheet对象
 
-   #  time.sleep(3)
+        #  time.sleep(3)
 
+        # book1=app.books.open(r'外送部数据记录表04.25.xls')
+        # book2=app.books.open(r'评论率 (30).xlsx')
+        # book=app.books.open(r'test.xlsx')
 
-    # book1=app.books.open(r'外送部数据记录表04.25.xls')
-    # book2=app.books.open(r'评论率 (30).xlsx')
-    # book=app.books.open(r'test.xlsx')
+        # book = xw.Book('test.xlsx')
+        # 此时界面上会弹出Excel窗口，如果test.xlsx文件不存在则会报错，如果test.xlsx已经被打开，直接返回这个文件对象
 
-    # book = xw.Book('test.xlsx')
-    # 此时界面上会弹出Excel窗口，如果test.xlsx文件不存在则会报错，如果test.xlsx已经被打开，直接返回这个文件对象
+        # print (book.name,book.fullname)    # 打印文件名和绝对路径
+        # print (book.app)    # 可以查看book所在哪个APP
+        # print (book.sheets)    # 又是一个类列表结构，存放各种Sheet对象
+        # book.activate()    # 如果Excel没有获得当前系统的焦点，调用这个方法可以回到Excel中去
 
-    # print (book.name,book.fullname)    # 打印文件名和绝对路径
-    # print (book.app)    # 可以查看book所在哪个APP
-    # print (book.sheets)    # 又是一个类列表结构，存放各种Sheet对象
-    # book.activate()    # 如果Excel没有获得当前系统的焦点，调用这个方法可以回到Excel中去
+        # book.sheets['sheet1'].range('A2').value = 'Foo1'
 
+        # book.sheets['sheet1'].range('A2').value = '123'
 
+        # a=book.sheets['sheet1'].range('A2').expand().value
 
+        # print(a)
 
+        # sht=book.sheets['sheet1']
 
-    # book.sheets['sheet1'].range('A2').value = 'Foo1'
+        # chart = book.sheets['sheet1'].charts.add()
+        # chart.set_source_data(sht.range('A1').expand())
+        # chart.chart_type = 'line'
+        # chart.name
 
-    # book.sheets['sheet1'].range('A2').value = '123'
+        # book.sheets['王府井店1'].range('S32').value = '61'
+        # book.sheets['王府井店1'].range('T32').value = '3580.9'
 
-    # a=book.sheets['sheet1'].range('A2').expand().value
+        i = 2
+        arr5 = book3.sheets[0].range('D3:D32').value
+        while(i < 32):
 
-    # print(a)
+            arr1 = book.sheets[0].range('C'+str(i)+':E'+str(i)).value
+            arr2 = book.sheets[0].range('K'+str(i)+':V'+str(i)).value
+            arr3 = book.sheets[0].range('AB'+str(i)+':AK'+str(i)).value
+            arr4 = book2.sheets[0].range('C'+str(i)+':E'+str(i)).value
+            # print(arr1)
+            # print(arr2)
+            print(arr1)
+            # book.sheets[0].range('J8').value=88.8
+            # book.sheets[0].range('J8').api.Font.Bold = True
+            # book.sheets[0].range('J8').api.NumberFormatLocal= "0.00_);[红色](0.00)"
+            # book.save()
 
-    # sht=book.sheets['sheet1']
+            # # book.app.kill()
+            # 关闭Excel文档，但只是关闭文件本身，不关闭excel程序。。若要关闭Excel程序则需要调用响应APP实例的kill方法。经过试验，先调用close会导致默认创建的app实例自动消失，从而无法调用kill，从而关不掉Excel
+            # # 所以最好的办法不是调用这个close而是调用app.kill()。
 
-    # chart = book.sheets['sheet1'].charts.add()
-    # chart.set_source_data(sht.range('A1').expand())
-    # chart.chart_type = 'line'
-    # chart.name
+            # # sheet = book.sheets[0]
+            # # 其他获取sheet对象的方法还有book.sheets['sheet_name']
 
-    # book.sheets['王府井店1'].range('S32').value = '61'
-    # book.sheets['王府井店1'].range('T32').value = '3580.9'
+            #   book1.activate()
+            row = a[3]
+            row1 = a[4]
+            book1.sheets[i-1].range('Y'+str(row)).value = arr1
+            book1.sheets[i-1].range('AG'+str(row)).value = arr2
+            book1.sheets[i-1].range('AX'+str(row)).value = arr3
 
-   i=2
-   arr5=book3.sheets[0].range('D3:D32').value
-   while(i<32) :
+            book1.sheets[i-1].range('F'+str(row1)).value = arr4[0]
+            book1.sheets[i-1].range('H'+str(row1)).value = arr4[1]
+            book1.sheets[i-1].range('J'+str(row1)).value = arr4[2]
 
+            book1.sheets[i-1].range('W'+str(row)).value = arr5[i-2]
 
+            # 推广格式设置   自定义格式 "[=0]"""";G/通用格式"
+            # book1.sheets[i-1].range('W'+str(row)).api.NumberFormatLocal= "0.00_ "
 
+            # book1.sheets[i-1].range('AP'+str(row)
+            #                         ).api.NumberFormatLocal = "G/通用格式"
+            # # book1.sheets['王府井店1'].range('AK32').api.NumberFormatLocal= "0.00_);[红色](0.00)"
+            # book1.sheets[i-1].range('AQ'+str(row)
+            #                         ).api.NumberFormatLocal = "G/通用格式"
+            # # book1.sheets['王府井店1'].range('AL32').api.Font.Bold
+            # book1.sheets[i-1].range('AR'+str(row)
+            #                         ).api.NumberFormatLocal = "G/通用格式"
+            print(i)
+            i = i+1
 
-      arr1=book.sheets[0].range('C'+str(i)+':E'+str(i)).value
-      arr2=book.sheets[0].range('K'+str(i)+':V'+str(i)).value
-      arr3=book.sheets[0].range('AB'+str(i)+':AK'+str(i)).value
-      arr4=book2.sheets[0].range('C'+str(i)+':E'+str(i)).value
-      # print(arr1)
-      # print(arr2)
-      print(arr5)
-      # book.sheets[0].range('J8').value=88.8
-      # book.sheets[0].range('J8').api.Font.Bold = True
-      # book.sheets[0].range('J8').api.NumberFormatLocal= "0.00_);[红色](0.00)" 
-      # book.save()
+        # print (book1.sheets)
 
+        book1.save()
+        book1.app.quit()
+        # book.close()
+        # book1.close()
+        # book2.close()
+        # book3.close()
 
-      # # book.app.kill()
-         # 关闭Excel文档，但只是关闭文件本身，不关闭excel程序。。若要关闭Excel程序则需要调用响应APP实例的kill方法。经过试验，先调用close会导致默认创建的app实例自动消失，从而无法调用kill，从而关不掉Excel
-      # # 所以最好的办法不是调用这个close而是调用app.kill()。
-
-      # # sheet = book.sheets[0]
-      # # 其他获取sheet对象的方法还有book.sheets['sheet_name']
-
-        
-      #   book1.activate() 
-      row =a[3]
-      row1=a[4]
-      book1.sheets[i-1].range('S'+str(row)).value = arr1
-      book1.sheets[i-1].range('AA'+str(row)).value = arr2
-      book1.sheets[i-1].range('AR'+str(row)).value = arr3
-
-      book1.sheets[i-1].range('F'+str(row1)).value = arr4[0]
-      book1.sheets[i-1].range('H'+str(row1)).value = arr4[1]
-      book1.sheets[i-1].range('J'+str(row1)).value = arr4[2]
-
-      book1.sheets[i-1].range('Q'+str(row)).value = arr5[i-2]        
-
-
-
-
-      book1.sheets[i-1].range('AJ'+str(row)).api.NumberFormatLocal= "G/通用格式" 
-      # book1.sheets['王府井店1'].range('AK32').api.NumberFormatLocal= "0.00_);[红色](0.00)" 
-      book1.sheets[i-1].range('AK'+str(row)).api.NumberFormatLocal= "G/通用格式" 
-      # book1.sheets['王府井店1'].range('AL32').api.Font.Bold
-      book1.sheets[i-1].range('AL'+str(row)).api.NumberFormatLocal= "G/通用格式" 
-      print (i)
-      i=i+1  
-
-
-
-    # print (book1.sheets)
-
-    
-   book1.save()
-   book.app.kill() 
-#  book1.app.kill() 
-#  book2.app.kill()  
-
-
-
-
-
-
+    #  book1.app.kill()
+    #  book2.app.kill()
