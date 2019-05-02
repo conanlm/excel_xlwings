@@ -114,7 +114,15 @@ def update(a):
         # print (book1.sheets)
 
         book1.save()
+        # wps需要逐个关闭，微软office只需关闭一次，就会全部关闭
+        book.app.quit()
+
         book1.app.quit()
+        book2.app.quit()
+        book3.app.quit()
+
+        # xw.apps[xw.apps.keys()].quit()
+        # print(xw.apps.keys())
         # book.close()
         # book1.close()
         # book2.close()
