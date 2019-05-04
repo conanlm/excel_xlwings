@@ -14,10 +14,13 @@ def update(a):
     #  book=app.books.open(a[0])
     #  book1=app.books.open(a[2])
     #  book2=app.books.open(a[1])
-
+    # excel 默认设置：程序可见，只打开不新建工作薄，屏幕更新关闭
+    app = xw.App(visible=False, add_book=False)
+    # app.display_alerts=False
+    # app.screen_updating=False
     try:
-        book = xw.Book(str(a[0]))
-        book1 = xw.Book(str(a[2]))
+        book = app.books.open(str(a[0]))
+        book1 = app.books.open(str(a[2]))
         book2 = xw.Book(str(a[1]))
         book3 = xw.Book(a[5])
     except FileNotFoundError:
@@ -117,9 +120,9 @@ def update(a):
         # wps需要逐个关闭，微软office只需关闭一次，就会全部关闭
         book.app.quit()
 
-        book1.app.quit()
-        book2.app.quit()
-        book3.app.quit()
+        # book1.app.quit()
+        # book2.app.quit()
+        # book3.app.quit()
 
         # xw.apps[xw.apps.keys()].quit()
         # print(xw.apps.keys())
