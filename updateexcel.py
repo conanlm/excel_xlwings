@@ -21,16 +21,16 @@ def update(a):
     try:
         book = app.books.open(str(a[0]))
         book1 = app.books.open(str(a[2]))
-        book2 = xw.Book(str(a[1]))
-        book3 = xw.Book(a[5])
+        book2 = app.books.open(str(a[1]))
+        book3 = app.books.open(a[5])
     except FileNotFoundError:
         print("二孩子，文件名写对了吗")
-        book1.app.quit()
+        app.quit()
         input()
     else:
 
-        print(book.app)    # 可以查看book所在哪个APP
-        print(book.sheets)    # 又是一个类列表结构，存放各种Sheet对象
+        print(book.app)  # 可以查看book所在哪个APP
+        print(book.sheets)  # 又是一个类列表结构，存放各种Sheet对象
 
         #  time.sleep(3)
 
@@ -66,12 +66,12 @@ def update(a):
 
         i = 2
         arr5 = book3.sheets[0].range('D3:D32').value
-        while(i < 32):
+        while (i < 32):
 
-            arr1 = book.sheets[0].range('C'+str(i)+':E'+str(i)).value
-            arr2 = book.sheets[0].range('K'+str(i)+':V'+str(i)).value
-            arr3 = book.sheets[0].range('AB'+str(i)+':AK'+str(i)).value
-            arr4 = book2.sheets[0].range('C'+str(i)+':E'+str(i)).value
+            arr1 = book.sheets[0].range('C' + str(i) + ':E' + str(i)).value
+            arr2 = book.sheets[0].range('K' + str(i) + ':V' + str(i)).value
+            arr3 = book.sheets[0].range('AB' + str(i) + ':AK' + str(i)).value
+            arr4 = book2.sheets[0].range('C' + str(i) + ':E' + str(i)).value
             # print(arr1)
             # print(arr2)
             print(arr1)
@@ -90,15 +90,15 @@ def update(a):
             #   book1.activate()
             row = a[3]
             row1 = a[4]
-            book1.sheets[i-1].range('Y'+str(row)).value = arr1
-            book1.sheets[i-1].range('AG'+str(row)).value = arr2
-            book1.sheets[i-1].range('AX'+str(row)).value = arr3
+            book1.sheets[i - 1].range('Y' + str(row)).value = arr1
+            book1.sheets[i - 1].range('AG' + str(row)).value = arr2
+            book1.sheets[i - 1].range('AX' + str(row)).value = arr3
 
-            book1.sheets[i-1].range('F'+str(row1)).value = arr4[0]
-            book1.sheets[i-1].range('H'+str(row1)).value = arr4[1]
-            book1.sheets[i-1].range('J'+str(row1)).value = arr4[2]
+            book1.sheets[i - 1].range('F' + str(row1)).value = arr4[0]
+            book1.sheets[i - 1].range('H' + str(row1)).value = arr4[1]
+            book1.sheets[i - 1].range('J' + str(row1)).value = arr4[2]
 
-            book1.sheets[i-1].range('W'+str(row)).value = arr5[i-2]
+            book1.sheets[i - 1].range('W' + str(row)).value = arr5[i - 2]
 
             # 推广格式设置   自定义格式 "[=0]"""";G/通用格式"
             # book1.sheets[i-1].range('W'+str(row)).api.NumberFormatLocal= "0.00_ "
@@ -112,13 +112,14 @@ def update(a):
             # book1.sheets[i-1].range('AR'+str(row)
             #                         ).api.NumberFormatLocal = "G/通用格式"
             print(i)
-            i = i+1
+            i = i + 1
 
         # print (book1.sheets)
 
         book1.save()
         # wps需要逐个关闭，微软office只需关闭一次，就会全部关闭
-        book.app.quit()
+        # book.app.quit()
+        app.quit()
 
         # book1.app.quit()
         # book2.app.quit()
