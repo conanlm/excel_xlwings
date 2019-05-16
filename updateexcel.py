@@ -21,15 +21,10 @@ def update(a):
     try:
         book = app.books.open(str(a[0]))
         book1 = app.books.open(str(a[2]))
-<<<<<<< .merge_file_a03896
         book2 = xw.Book(str(a[1]))
         book3 = xw.Book(a[5])
         book4 = xw.Book(a[6])
         book5 = xw.Book(a[7])
-=======
-        book2 = app.books.open(str(a[1]))
-        book3 = app.books.open(a[5])
->>>>>>> .merge_file_a02088
     except FileNotFoundError:
         print("二孩子，文件名写对了吗")
         app.quit()
@@ -73,25 +68,16 @@ def update(a):
 
         i = 2
         arr5 = book3.sheets[0].range('D3:D32').value
-<<<<<<< .merge_file_a03896
         arr7 = book5.sheets[0].range('B3:B32').value
         arr8 = book5.sheets[0].range('C3:C32').value
-        while(i < 32):
-
-            arr1 = book.sheets[0].range('C'+str(i)+':E'+str(i)).value
-            # arr2 = book.sheets[0].range('K'+str(i)+':V'+str(i)).value
-            arr2 = book.sheets[0].range('K'+str(i)+':S'+str(i)).value
-            arr6 = book.sheets[0].range('T'+str(i)+':V'+str(i)).value
-            arr3 = book.sheets[0].range('AB'+str(i)+':AK'+str(i)).value
-            arr4 = book2.sheets[0].range('C'+str(i)+':E'+str(i)).value
-=======
         while (i < 32):
 
             arr1 = book.sheets[0].range('C' + str(i) + ':E' + str(i)).value
-            arr2 = book.sheets[0].range('K' + str(i) + ':V' + str(i)).value
+            # arr2 = book.sheets[0].range('K'+str(i)+':V'+str(i)).value
+            arr2 = book.sheets[0].range('K' + str(i) + ':S' + str(i)).value
+            arr6 = book.sheets[0].range('T' + str(i) + ':V' + str(i)).value
             arr3 = book.sheets[0].range('AB' + str(i) + ':AK' + str(i)).value
             arr4 = book2.sheets[0].range('C' + str(i) + ':E' + str(i)).value
->>>>>>> .merge_file_a02088
             # print(arr1)
             # print(arr2)
             print(arr1)
@@ -110,31 +96,19 @@ def update(a):
             #   book1.activate()
             row = a[3]
             row1 = a[4]
-<<<<<<< .merge_file_a03896
-            row2=int(row)+1
-            book1.sheets[i-1].range('Y'+str(row)).value = arr1
-            book1.sheets[i-1].range('AG'+str(row)).value = arr2
-            book1.sheets[i-1].range('AY'+str(row)).value = arr6
-            book1.sheets[i-1].range('BG'+str(row)).value = arr3
-
-            book4.sheets[i].range('F'+str(row1)).value = arr4[0]
-            book4.sheets[i].range('H'+str(row1)).value = arr4[1]
-            book4.sheets[i].range('J'+str(row1)).value = arr4[2]
-
-            book1.sheets[i-1].range('W'+str(row)).value = arr5[i-2]
-            book1.sheets[i-1].range('AP'+str(row2)).value = arr7[i-2]
-            book1.sheets[i-1].range('BR'+str(row2)).value = arr8[i-2]
-=======
+            row2 = int(row) + 1
             book1.sheets[i - 1].range('Y' + str(row)).value = arr1
             book1.sheets[i - 1].range('AG' + str(row)).value = arr2
-            book1.sheets[i - 1].range('AX' + str(row)).value = arr3
+            book1.sheets[i - 1].range('AY' + str(row)).value = arr6
+            book1.sheets[i - 1].range('BG' + str(row)).value = arr3
 
-            book1.sheets[i - 1].range('F' + str(row1)).value = arr4[0]
-            book1.sheets[i - 1].range('H' + str(row1)).value = arr4[1]
-            book1.sheets[i - 1].range('J' + str(row1)).value = arr4[2]
+            book4.sheets[i].range('F' + str(row1)).value = arr4[0]
+            book4.sheets[i].range('H' + str(row1)).value = arr4[1]
+            book4.sheets[i].range('J' + str(row1)).value = arr4[2]
 
             book1.sheets[i - 1].range('W' + str(row)).value = arr5[i - 2]
->>>>>>> .merge_file_a02088
+            book1.sheets[i - 1].range('AP' + str(row2)).value = arr7[i - 2]
+            book1.sheets[i - 1].range('BR' + str(row2)).value = arr8[i - 2]
 
             # 推广格式设置   自定义格式 "[=0]"""";G/通用格式"
             # book1.sheets[i-1].range('W'+str(row)).api.NumberFormatLocal= "0.00_ "
