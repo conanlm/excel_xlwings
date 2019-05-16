@@ -18,7 +18,6 @@ start = time.perf_counter()
 # # print (book.sheets)    # 又是一个类列表结构，存放各种Sheet对象
 # book.activate()    # 如果Excel没有获得当前系统的焦点，调用这个方法可以回到Excel中去
 
-
 # # book.sheets['sheet1'].range('A2').value = 'Foo1'
 
 # # book.sheets['sheet1'].range('A2').value = '123'
@@ -36,7 +35,6 @@ start = time.perf_counter()
 
 # # book.sheets['王府井店1'].range('S32').value = '61'
 # # book.sheets['王府井店1'].range('T32').value = '3580.9'
-
 
 # arr = []
 # # arr.append(book.sheets[0].range('C2').value)
@@ -63,7 +61,6 @@ start = time.perf_counter()
 # # arr.append(book.sheets[0].range('AJ2').value)
 # print(arr)
 # # book.save()
-
 
 # # book.app.kill()
 # book.close()    # 关闭Excel文档，但只是关闭文件本身，不关闭excel程序。。若要关闭Excel程序则需要调用响应APP实例的kill方法。经过试验，先调用close会导致默认创建的app实例自动消失，从而无法调用kill，从而关不掉Excel
@@ -95,7 +92,6 @@ start = time.perf_counter()
 # # book1.sheets['王府井店1'].range('AX32').value = arr[16]
 # # book1.sheets['王府井店1'].range('AZ32').value = arr[17]
 
-
 # book1.save()
 # book1.close()
 # print ()
@@ -105,7 +101,7 @@ for line in open("name.txt"):
 
 # a.append(open("name.txt",'r', encoding='UTF-8').read() )
 
-    # arr.add
+# arr.add
 print(a)
 
 # 分平台营业数据 (31).xlsx
@@ -117,4 +113,4 @@ print(a)
 ue.update(a)
 
 end = time.perf_counter()
-print(end-start)
+print(end - start)
