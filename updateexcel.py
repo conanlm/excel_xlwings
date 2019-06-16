@@ -21,10 +21,14 @@ def update(a):
     try:
         book = app.books.open(str(a[0]))
         book1 = app.books.open(str(a[2]))
-        book2 = xw.Book(str(a[1]))
-        book3 = xw.Book(a[5])
-        book4 = xw.Book(a[6])
-        book5 = xw.Book(a[7])
+        # book2 = xw.Book(str(a[1]))
+        # book3 = xw.Book(a[5])
+        # book4 = xw.Book(a[6])
+        # book5 = xw.Book(a[7])
+        book2 = app.books.open(str(a[1]))
+        book3 = app.books.open(a[5])
+        book4 = app.books.open(a[6])
+        book5 = app.books.open(a[7])
     except FileNotFoundError:
         print("二孩子，文件名写对了吗")
         app.quit()
@@ -67,10 +71,10 @@ def update(a):
         # book.sheets['王府井店1'].range('T32').value = '3580.9'
 
         i = 2
-        arr5 = book3.sheets[0].range('D3:D32').value
-        arr7 = book5.sheets[0].range('B3:B32').value
-        arr8 = book5.sheets[0].range('C3:C32').value
-        while (i < 32):
+        arr5 = book3.sheets[0].range('D3:D35').value
+        arr7 = book5.sheets[0].range('B3:B35').value
+        arr8 = book5.sheets[0].range('C3:C35').value
+        while (i < 35):
 
             arr1 = book.sheets[0].range('C' + str(i) + ':E' + str(i)).value
             # arr2 = book.sheets[0].range('K'+str(i)+':V'+str(i)).value
@@ -97,18 +101,18 @@ def update(a):
             row = a[3]
             row1 = a[4]
             row2 = int(row) + 1
-            book1.sheets[i - 1].range('Y' + str(row)).value = arr1
-            book1.sheets[i - 1].range('AG' + str(row)).value = arr2
-            book1.sheets[i - 1].range('AY' + str(row)).value = arr6
-            book1.sheets[i - 1].range('BG' + str(row)).value = arr3
+            book1.sheets[i + 1].range('Y' + str(row)).value = arr1
+            book1.sheets[i + 1].range('AG' + str(row)).value = arr2
+            book1.sheets[i + 1].range('AY' + str(row)).value = arr6
+            book1.sheets[i + 1].range('BG' + str(row)).value = arr3
 
             book4.sheets[i].range('F' + str(row1)).value = arr4[0]
             book4.sheets[i].range('H' + str(row1)).value = arr4[1]
             book4.sheets[i].range('J' + str(row1)).value = arr4[2]
 
-            book1.sheets[i - 1].range('W' + str(row)).value = arr5[i - 2]
-            book1.sheets[i - 1].range('AP' + str(row2)).value = arr7[i - 2]
-            book1.sheets[i - 1].range('BR' + str(row2)).value = arr8[i - 2]
+            book1.sheets[i + 1].range('W' + str(row)).value = arr5[i - 2]
+            book1.sheets[i + 1].range('AP' + str(row2)).value = arr7[i - 2]
+            book1.sheets[i + 1].range('BR' + str(row2)).value = arr8[i - 2]
 
             # 推广格式设置   自定义格式 "[=0]"""";G/通用格式"
             # book1.sheets[i-1].range('W'+str(row)).api.NumberFormatLocal= "0.00_ "

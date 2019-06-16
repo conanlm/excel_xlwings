@@ -6,3 +6,4 @@ pyexcel.exe
 pyexcel.spec
 *.xlsx
 *.xls
+*.ico
