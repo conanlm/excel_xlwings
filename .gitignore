@@ -7,3 +7,4 @@ pyexcel.spec
 *.xlsx
 *.xls
 *.ico
+*.xlsm
