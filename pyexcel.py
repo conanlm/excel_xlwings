@@ -3,9 +3,9 @@
 # pip install PyInstaller
 # pyinstaller -F pyexcel.py
 import updateexcel as ue
-import time
+from time import perf_counter
 
-start = time.perf_counter()
+start = perf_counter()
 # app=xw.App(visible=True,add_book=False)
 
 # book=app.books.open(r'分平台营业数据 (31).xlsx')
@@ -112,5 +112,5 @@ print(a)
 
 ue.update(a)
 
-end = time.perf_counter()
+end = perf_counter()
 print(end - start)

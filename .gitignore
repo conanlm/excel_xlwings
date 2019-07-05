@@ -8,3 +8,4 @@ pyexcel.spec
 *.xls
 *.ico
 *.xlsm
+/upx-3.95-win64

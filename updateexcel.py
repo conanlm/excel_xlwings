@@ -1,5 +1,8 @@
 # pip install xlwings
-import xlwings as xw
+# pyinstaller -F -i easyicon.ico pyexcel.py
+# import xlwings as xw
+from xlwings import App
+# pyinstaller -F -i easyicon.ico --upx D:\workspace\Python\excel_xlwings\upx-3.95-win64 pyexcel.py
 # import time
 
 
@@ -15,7 +18,7 @@ def update(a):
     #  book1=app.books.open(a[2])
     #  book2=app.books.open(a[1])
     # excel 默认设置：程序可见，只打开不新建工作薄，屏幕更新关闭
-    app = xw.App(visible=False, add_book=False)
+    app = App(visible=False, add_book=False)
     # app.display_alerts=False
     # app.screen_updating=False
     try:
@@ -71,10 +74,10 @@ def update(a):
         # book.sheets['王府井店1'].range('T32').value = '3580.9'
 
         i = 2
-        arr5 = book3.sheets[0].range('D3:D35').value
-        arr7 = book5.sheets[0].range('B3:B35').value
-        arr8 = book5.sheets[0].range('C3:C35').value
-        while (i < 35):
+        arr5 = book3.sheets[0].range('D3:D37').value
+        arr7 = book5.sheets[0].range('B3:B37').value
+        arr8 = book5.sheets[0].range('C3:C37').value
+        while (i < 37):# 加表改这个数字和上边三行
 
             arr1 = book.sheets[0].range('C' + str(i) + ':E' + str(i)).value
             # arr2 = book.sheets[0].range('K'+str(i)+':V'+str(i)).value
