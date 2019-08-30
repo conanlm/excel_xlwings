@@ -1,4 +1,5 @@
 # pip install xlwings
+# pip install pyinstaller
 # pyinstaller -F -i easyicon.ico pyexcel.py
 # import xlwings as xw
 from xlwings import App
@@ -74,10 +75,10 @@ def update(a):
         # book.sheets['王府井店1'].range('T32').value = '3580.9'
 
         i = 2
-        arr5 = book3.sheets[0].range('D3:D37').value
-        arr7 = book5.sheets[0].range('B3:B37').value
-        arr8 = book5.sheets[0].range('C3:C37').value
-        while (i < 37):# 加表改这个数字和上边三行
+        arr5 = book3.sheets[0].range('D3:D39').value
+        arr7 = book5.sheets[0].range('B3:B39').value
+        arr8 = book5.sheets[0].range('C3:C39').value
+        while (i < 39): # 加表改这个数字和上边三行
 
             arr1 = book.sheets[0].range('C' + str(i) + ':E' + str(i)).value
             # arr2 = book.sheets[0].range('K'+str(i)+':V'+str(i)).value
